@@ -16,9 +16,9 @@ const swaggerOptions = {
     definition: {
         openapi: '3.0.0',
         info: {
-            title: 'Express API with Swagger',
+            title: 'Ajmera Infotech Task',
             version: '1.0.0',
-            description: 'This is a simple CRUD API application made with Express and documented with Swagger',
+            description: 'Ajmera Infotech Task API',
         },
         servers: [
             {
