@@ -1,1 +1,6 @@
 # ajmerainfo-task
+
+# install Dependecy
+...
+npm install
+...
