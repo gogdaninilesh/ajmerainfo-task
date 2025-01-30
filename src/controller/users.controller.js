@@ -35,7 +35,7 @@ class UsersController {
                                 id: addUser.id,
                                 name: addUser.name,
                                 email: addUser.email,
-                                role: addUser.role,
+                                role: addUser.role === 1 ? "admin" : "user",
                             },
                             config.JWT_SECRET_KEY,
                             { expiresIn: config.JWT_EXPIRES }
@@ -89,7 +89,7 @@ class UsersController {
                         name: validateUser.name,
                         email: validateUser.email,
                         profile: `${config.IMG_URl}/${validateUser.profile}`,
-                        role: validateUser.role,
+                        role: validateUser.role === 1 ? "admin" : "user",
                     }
                     return res.status(200).send({ status: true, message: `Welcome back ${validateUser.email}`, data: { ...responseData, token } });
                 } else {
@@ -115,6 +115,7 @@ class UsersController {
             if (!_.isEmpty(users)) {
                 users.map(user => {
                     user.profile = user.profile ? `${config.IMG_URl}/${user.profile}` : "";
+                    user.role = user.role === 1 ? "admin" : "user";
                 });
                 return res.status(200).send({ status: true, message: "Users list", data: users });
             } else {
